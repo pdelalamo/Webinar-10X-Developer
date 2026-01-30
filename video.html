@@ -18,8 +18,9 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    /* Mostrar siempre el botón */
     #calendly-btn {
-      display:none;
+      display:inline-block;
       margin-top:20px;
       padding:12px 20px;
       font-size:18px;
@@ -45,7 +46,7 @@
     <div class="click-blocker" id="blocker" title="Toca para pausar/reanudar"></div>
   </div>
 
-  <button id="calendly-btn" onclick="window.open('https://calendly.com/p-delalamorodriguez/30min','_blank')">
+  <button id="calendly-btn" onclick="window.open('https://calendly.com/p-delalamorodriguez/30min','_blank')" aria-label="Agendar llamada">
     Agendar llamada
   </button>
 
@@ -108,7 +109,7 @@
         stopChecking();
       } else if (state === Y.ENDED) {
         stopChecking();
-        document.getElementById('calendly-btn').style.display = 'inline-block';
+        // ya no cambiamos la visibilidad del botón: permanece siempre visible
       }
     }
   </script>
