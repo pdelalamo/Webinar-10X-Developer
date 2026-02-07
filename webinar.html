@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>10X Developer — Webinar / Llamada</title>
+  <meta name="description" content="Aprende qué conviene aprender, cómo crecer en tu carrera y cómo pasar a trabajar remoto cobrando lo que vales. Reserva una llamada 1:1 gratuita." />
+  <style>
+    :root{
+      --bg:#f6f7fb; --card:#ffffff; --muted:#6b7280; --accent:#0a84ff; --accent-2:#0066ff; --glass:rgba(255,255,255,0.6);
+      --radius:12px; --max-w:1100px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Arial; margin:0; background:var(--bg); color:#0f172a; display:flex; justify-content:center;}
+    .container{width:100%;max-width:var(--max-w); padding:36px 20px}
+
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    .brand h1{margin:0;font-size:18px}
+
+    nav{display:flex;gap:12px;align-items:center}
+    .btn-ghost{background:transparent;border:0;padding:8px 12px;border-radius:10px;color:var(--muted);cursor:pointer}
+    .cta-stick{background:var(--accent); color:#fff;border:0;padding:10px 14px;border-radius:10px;font-weight:600;cursor:pointer}
+
+    main{display:grid;grid-template-columns:1fr 520px;gap:28px;align-items:start}
+    @media (max-width:980px){main{grid-template-columns:1fr;}}
+
+    .hero{padding:28px;background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(255,255,255,0.9)); border-radius:var(--radius);box-shadow:0 8px 30px rgba(16,24,40,0.06)}
+    .kicker{display:inline-block;background:#eef2ff;color:var(--accent-2);padding:6px 10px;border-radius:999px;font-weight:600;font-size:13px;margin-bottom:12px}
+    .headline{font-size:28px;line-height:1.05;margin:6px 0 14px}
+    .sub{color:var(--muted);margin-bottom:18px}
+    .bullets{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:18px}
+    @media (max-width:700px){.bullets{grid-template-columns:1fr}}
+    .bullet{background:var(--card);padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(16,24,40,0.04)}
+    .bullet strong{display:block;margin-bottom:6px}
+
+    .primary-cta{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;border:0;padding:12px 18px;border-radius:12px;font-weight:700;cursor:pointer}
+        .secondary-cta{align-items:center;gap:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;border:0;padding:12px 18px;border-radius:12px;font-weight:700;cursor:pointer}
+    .secondary{background:transparent;border:1px solid rgba(15,23,42,0.06);padding:10px 14px;border-radius:10px;cursor:pointer}
+
+    /* right column: video card */
+    .card{background:#000;border-radius:12px;overflow:hidden;position:relative;height:100%;box-shadow:0 10px 40px rgba(2,6,23,0.25)}
+    .video-wrap{position:relative;padding-top:56.25%;height:0}
+    .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .video-overlay{position:absolute;inset:0;z-index:10;display:flex;align-items:center;justify-content:center}
+    .play-btn{width:72px;height:72px;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.06));display:flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,0.12);backdrop-filter:blur(4px)}
+    .play-btn svg{width:28px;height:28px;fill:white}
+    .click-blocker{position:absolute;inset:0;z-index:20;background:transparent;cursor:pointer}
+
+    /* section below */
+    .sections{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+    @media (max-width:980px){.sections{grid-template-columns:1fr}}
+    .panel{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 30px rgba(16,24,40,0.04)}
+    .panel h3{margin-top:0}
+
+    .testi{display:flex;gap:12px;align-items:center}
+    .avatar{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:white;display:flex;align-items:center;justify-content:center;font-weight:700}
+    .testi p{margin:0}
+
+    footer{margin-top:26px;display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:14px}
+
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#eef2ff;color:var(--accent-2);font-weight:700;font-size:12px}
+
+    /* subtle animations */
+    .fade-up{transform:translateY(8px);opacity:0;animation:fadeUp .6s ease forwards}
+    @keyframes fadeUp{to{transform:none;opacity:1}}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <main>
+      <section class="hero fade-up">
+        <h2 class="headline">Consigue el puesto de desarrollador que realmente paga lo que vales.</h2>
+        <p class="sub">Si eres desarrollador y estás harto de ir a la oficina, cobrar poco, trabajar en proyectos aburridos o no saber qué aprender para seguir creciendo, no te pierdas el webinar que he preparado, y reserva una llamada gratuita de 30 minutos donde vemos tu caso concreto, y qué pasos podemos tomar para crecer en tu carrera y alcanzar roles remotos mejor pagados.</p>
+
+        <div class="bullets">
+          <div class="bullet">
+            <strong>No quiero</strong>
+            <ul class="muted">
+              <li>Ir a la oficina para perder 2 horas al día en desplazamientos</li>
+              <li>Ganar menos de lo que valgo</li>
+              <li>Aprender tecnologías por hacerlo</li>
+              <li>Que no se me valore dentro de mi equipo</li>
+            </ul>
+          </div>
+          <div class="bullet">
+            <strong>Quiero</strong>
+            <ul class="muted">
+              <li>Un plan claro para multiplicar mi salario y responsabilidades</li>
+              <li>Decidir si trabajar en remoto</li>
+              <li>Un proyecto que me ilusione</li>
+              <li>Crecer profesionalmente</li>
+              <li>Aprender a encontrar las mejores ofertas</li>
+              <li>Acompañamiento para pasar los procesos de selección</li>
+              <li>Saber qué necesito aprender y qué no</li>
+              <li>Más libertad y tiempo para mí</li>
+              <li>Convertirme en ese desarrollador imprescindible que todos quieren en su equipo</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+          <button class="primary-cta" onclick="openCalendly()">Agendar llamada — 30 min</button>
+          <div style="margin-left:auto" class="pill">¡Plazas limitadas!</div>
+        </div>
+      </section>
+
+      <aside class="card fade-up" id="video-wrap">
+        <div class="video-wrap">
+          <iframe id="ytplayer" src="https://www.youtube-nocookie.com/embed/4tbcpLI5bnI?enablejsapi=1&controls=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&playsinline=1" allow="autoplay; encrypted-media"></iframe>
+          <div class="video-overlay">
+            <div class="play-btn" id="play-btn" title="Toca para reproducir/pausar">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+            </div>
+          </div>
+          <div class="click-blocker" id="blocker" title="Toca para pausar/reanudar"></div>
+        </div>
+      </aside>
+            <button class="secondary-cta" onclick="openCalendly()">Agendar llamada — 30 min</button>
+    </main>
+
+    <div class="sections">
+      <div class="panel fade-up" id="learn">
+        <h3>¿Por qué 10X Developer?</h3>
+        <p class="muted">Porque si lo que buscas son resultados reales y no títulos ni papeles, ¿qué mejor manera de conseguirlo que con alguien que te acompañe en todo momento y que ya lo ha conseguido? En la llamada repasamos tu situación actual, identificamos los puntos en los que tenemos que trabajar para conseguir el rol que deseas, y creamos un plan 90/180 días con prioridades claras y un seguimiento diario que te hará conseguir tus objetivos.</p>
+        <ul class="muted">
+          <li>Foco en ROI: qué aprender (y qué no)</li>
+          <li>Cómo pasar entrevistas técnicas y no técnicas</li>
+          <li>8h de teoría técnica y no técnica</li>
+          <li>Networking y posicionamiento (LinkedIn, proyectos)</li>
+          <li>Acompañamiento 1:1 con soporte diario + sesiones semanales</li>
+           <li>Nada de cursitos grabados y ya. Acompañamiento personalizado e individualizado desde el minuto 1</li>
+        </ul>
+      </div>
+
+      <div class="panel fade-up" id="benefits">
+        <h3>Mi propio caso de éxito</h3>
+        <div class="testi">
+          <img src="photo.jpg" alt="Foto del instructor" class="avatar" style="object-fit:cover">
+          <div>
+            <p><strong>Tripliqué mi salario en menos de 5 años trabajando 100% en remoto.</strong></p>
+            <p class="muted">Como te cuento en el webinar, comencé como la mayoría, como becario haciendo prácticas en una empresa. Al poco tiempo salté buscando mejorar, pero por aquél entonces, seguía pensando que ser desarrollador de software = trabajo "asegurado" pero con condiciones mediocres. Como siempre he sido una persona inquieta, unas cosas y otras me llevaron a querer ir más lejos, y conseguir que mi trabajo cuadrara con mi estilo de vida. Menos de 5 años después, y tras mucha prueba y error, lo conseguí, y afortunadamente ahora puedo decir orgulloso, que sí sé como crecer en el mundo del software. Así que si tu también quieres lo mismo, agenda una llamada en el botón azul, y vemos como podemos lograr tus objetivos</p>
+          </div>
+        </div>
+      </div>
+      <div class="panel fade-up" id="learn">
+        <h3>¿Para quién es esta formación?</h3>
+        <p class="muted">Esta formación es para ti si:</p>
+        <ul class="muted">
+          <li>Tienes más de 1 año de experiencia</li>
+          <li>Eres una persona ambiciosa</li>
+          <li>Quieres un trabajo que te compense como te mereces</li>
+          <li>Vives en Europa</li>
+          <li>Estás dispuesto a trabajar por tus objetivos</li>
+        </ul>
+      </div>
+            <div class="panel fade-up" id="learn">
+        <h3>¡Plazas limitadas!</h3>
+        <p class="muted">Como te comentaba, esto no es uno de esos cursos grabados en los que después de pagar te quedas a la deriva. 
+        Aquí vas a trabajar durante varios meses 1:1 conmigo para lograr tus objetivos.
+        Mi tiempo es limitado, así que para garantizar la mejor experiencia y poder atender las necesidades de cada alumnno, las plazas son muy limitadas.</p>
+      </div>
+                  <button class="secondary-cta" onclick="openCalendly()">Agendar llamada — 30 min</button>
+    </div>
+  </div>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script>
+    // Calendly (abre en nueva pestaña)
+    function openCalendly(){ window.open('https://calendly.com/p-delalamorodriguez/30min','_blank'); }
+    function openLeadMagnet(){ alert('Aquí puedes conectar con tu sistema de email (Mailchimp, ConvertKit...) para enviar la guía.'); }
+
+    // Scroll helper
+    function scrollToVideo(){ document.getElementById('video-wrap').scrollIntoView({behavior:'smooth', block:'center'}); }
+
+    // YouTube player: play/pause + keep controls hidden
+    let player, checkInterval=null, lastTime=0;
+    function onYouTubeIframeAPIReady(){
+      player = new YT.Player('ytplayer',{
+        events: {'onReady':onPlayerReady,'onStateChange':onPlayerStateChange}
+      });
+    }
+    function onPlayerReady(){
+      const blocker = document.getElementById('blocker');
+      const playBtn = document.getElementById('play-btn');
+      blocker.addEventListener('click', togglePlayPause);
+      playBtn.addEventListener('click', togglePlayPause);
+
+      // make sure plays muted to allow autoplay on some browsers if desired
+      try{ player.mute(); }catch(e){}
+    }
+    function togglePlayPause(e){
+      try{
+        const Y = YT.PlayerState;
+        const s = player.getPlayerState();
+        if (s === Y.PLAYING || s === Y.BUFFERING) player.pauseVideo();
+        else player.playVideo();
+      }catch(err){console.warn('player not ready')}
+    }
+
+    function startChecking(){ if (checkInterval) clearInterval(checkInterval); try{ lastTime = player.getCurrentTime(); }catch(e){ lastTime=0 }
+      checkInterval = setInterval(()=>{ try{ const t = player.getCurrentTime(); if (Math.abs(t-lastTime) > 1.3) player.seekTo(lastTime,true); else lastTime = t }catch(e){} },500);
+    }
+    function stopChecking(){ if (checkInterval){ clearInterval(checkInterval); checkInterval=null } }
+    function onPlayerStateChange(e){ const Y = YT.PlayerState; const state=e.data; if (state===Y.PLAYING) startChecking(); else if (state===Y.PAUSED) stopChecking(); else if (state===Y.ENDED) stopChecking(); }
+
+    // small UX: animate elements in
+    document.addEventListener('DOMContentLoaded', ()=>{ document.querySelectorAll('.fade-up').forEach((el,i)=>{ el.style.animationDelay = (i*80)+'ms'; }); });
+  </script>
+</body>
+</html>
