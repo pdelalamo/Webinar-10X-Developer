@@ -54,25 +54,6 @@
   <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
   <!-- End Brevo Form styles -->
 
-  <!-- Meta Pixel Code - coloca esto dentro del <head> -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '4338107316408684'); // tu id
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=4338107316408684&ev=PageView&noscript=1"/>
-  </noscript>
-  <!-- End Meta Pixel Code -->
-
 </head>
 <body>
 
@@ -204,89 +185,6 @@
 
   <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 
-  <!-- FB tracking para la descarga/submit del formulario - coloca esto justo antes de </body> -->
-  <script>
-    (function(){
-      // Nombre del evento y metadata (ajusta si quieres otro evento o props)
-      var EVENT_NAME = 'Lead';
-      var EVENT_DATA = { content_name: 'Ebook 10X Developer', value: 0, currency: 'EUR' };
-
-      // Marca para evitar dobles envíos
-      if (!window.__fbqEbookFired) window.__fbqEbookFired = false;
-
-      function sendFbEvent(){
-        try {
-          if (window.fbq && !window.__fbqEbookFired) {
-            window.fbq('track', EVENT_NAME, EVENT_DATA);
-            window.__fbqEbookFired = true;
-            console.log('FB Pixel: evento enviado ->', EVENT_NAME);
-          }
-        } catch (e) {
-          console.warn('FB Pixel error', e);
-        }
-      }
-
-      // Helper para saber si un elemento es visible
-      function isVisible(el) {
-        if (!el) return false;
-        var style = window.getComputedStyle(el);
-        return style && style.display !== 'none' && style.visibility !== 'hidden' && parseFloat(style.opacity || 1) > 0 && el.offsetWidth > 0 && el.offsetHeight > 0;
-      }
-
-      // Fallback: intenta disparar en submit (no es ideal: puede dispararse antes de éxito)
-      var form = document.getElementById('sib-form');
-      if (form) {
-        form.addEventListener('submit', function() {
-          // evento de fallback (opcional)
-          try { if (window.fbq) window.fbq('track', 'Contact'); } catch(e){}
-        }, {passive: true});
-      }
-
-      // Observador: vigila cambios en el #success-message para detectar cuando aparece el mensaje de éxito
-      var success = document.getElementById('success-message');
-      if (success) {
-        // Observa atributos/childList por si Brevo cambia clases o estilo
-        var observer = new MutationObserver(function(mutations) {
-          if (isVisible(success)) {
-            sendFbEvent();
-          }
-        });
-
-        observer.observe(success, { attributes: true, childList: true, subtree: true });
-
-        // Comprobación inicial por si ya está visible
-        setTimeout(function(){ if (isVisible(success)) sendFbEvent(); }, 500);
-      } else {
-        // Si no existe el #success-message (por si cambian IDs), como alternativa
-        // podemos intentar observar cambios en el contenedor principal para buscar paneles
-        var container = document.getElementById('sib-form-container');
-        if (container) {
-          var observer2 = new MutationObserver(function() {
-            // busca un panel que contenga texto típico de 'Te has suscrito' o similar
-            var successCandidates = container.querySelectorAll('.sib-form-message-panel, #success-message');
-            for (var i = 0; i < successCandidates.length; i++) {
-              if (isVisible(successCandidates[i])) {
-                sendFbEvent();
-                return;
-              }
-            }
-          });
-          observer2.observe(container, { attributes: true, childList: true, subtree: true });
-        }
-      }
-
-      // Por seguridad: también añade un listener al botón de envío por si el formulario es AJAX y no cambia el success-message DOM
-      var submitBtn = document.querySelector('#sib-form button[type="submit"], .sib-form-block__button[type="submit"]');
-      if (submitBtn) {
-        submitBtn.addEventListener('click', function(){
-          // opcional: marcar intento de descarga
-          try { if (window.fbq) window.fbq('trackCustom', 'EbookDownloadAttempt'); } catch(e){}
-        });
-      }
-
-    })();
-  </script>
-  <!-- END - FB tracking script -->
 
   <!-- END - We recommend to place the above code in footer or bottom of your website html  -->
 </body>
